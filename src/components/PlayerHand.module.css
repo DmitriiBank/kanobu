@@ -1,0 +1,67 @@
+.hand-container {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 250px;
+    padding-bottom: 30px;
+    pointer-events: auto;
+    perspective: 600px;
+    transform-style: preserve-3d;
+}
+
+.card-wrapper {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: bottom center;
+    position: relative;
+    margin: 0 -40px; /* Начальное наслоение карт */
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+}
+
+.hand-container .card-wrapper {
+    transition: transform 0.4s ease, margin 0.4s ease, z-index 0.1s ease;
+}
+
+/* Веерное расположение карт */
+.hand-container .card-wrapper:nth-child(odd) {
+    transform: rotate(calc(-10deg + var(--index-rotation, 0deg)));
+}
+
+.hand-container .card-wrapper:nth-child(even) {
+    transform: rotate(calc(10deg + var(--index-rotation, 0deg)));
+}
+
+/* Эффект при наведении - раздвигание карт */
+.hand-container:hover .card-wrapper {
+    margin: 0 -15px; /* Раздвигаем карты при наведении на руку */
+}
+
+/* Поднимаем и увеличиваем конкретную карту при наведении */
+.hand-container .card-wrapper:hover {
+    transform: translateY(-60px) scale(1.2) rotate(0deg) !important;
+    margin: 0 10px; /* Дополнительное раздвигание для hover-карты */
+    z-index: 1000;
+    filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Плавное изменение положения соседних карт при наведении */
+.hand-container .card-wrapper:hover ~ .card-wrapper {
+    transform: rotate(calc(8deg + var(--index-rotation, 0deg)));
+    margin-left: 0px;
+}
+
+.hand-container .card-wrapper:has(~ .card-wrapper:hover) {
+    transform: rotate(calc(-8deg + var(--index-rotation, 0deg)));
+    margin-right: 0px;
+}
+
+.card {
+    width: 120px;
+    height: 170px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}

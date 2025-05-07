@@ -1,0 +1,10 @@
+.score-stars {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.star {
+    color: gold;
+    font-size: 50px;
+}
