@@ -330,20 +330,6 @@ const Game = () => {
             computerScore={computerScore}
                 // Исправлено: имя пропа соответствует GameBoard
             />
-
-            {/*{(playerCards.length === 0 || computerCards.length === 0 || playerScore === 0 || computerScore === 0) && (*/}
-            {/*    <div className={styles["result-section"]}>*/}
-            {/*        <h3>Игра окончена</h3>*/}
-            {/*        <p>Счёт: Вы {playerScore} — Компьютер {computerScore}</p>*/}
-            {/*        <p>{playerScore > computerScore*/}
-            {/*            ? "Поздравляем с победой!"*/}
-            {/*            : playerScore === computerScore*/}
-            {/*                ? "Ничья! Неплохой результат."*/}
-            {/*                : "ИИ победил. В следующий раз повезёт больше!"}*/}
-            {/*        </p>*/}
-            {/*        /!*<button onClick={restartGame}>Играть снова</button>*!/*/}
-            {/*    </div>*/}
-            {/*)}*/}
         </div>
     );
 };

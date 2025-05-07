@@ -1,9 +1,9 @@
 import React from 'react';
-import type {CardElement} from "../utils/constants.ts";
+import type {CARD_TYPES} from "../utils/constants.ts";
 import styles from "./CardItem.module.css"
 
 type Props = {
-    item: CardElement;
+    item: CARD_TYPES;
     onClick: () => void;
     className?: string;
     src?: string;
