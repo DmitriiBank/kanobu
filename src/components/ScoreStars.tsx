@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ScoreStars.module.css";
+import styles from "../styles/ScoreStars.module.css";
 
 type Props = {
     score: number;

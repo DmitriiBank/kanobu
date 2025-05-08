@@ -1,16 +1,16 @@
 import React from "react";
-import type { CardElement } from "../utils/constants";
-import CardItem from "./CardItem";
-import styles from "./ComputerHand.module.css";
+import type { CardElement } from "../utils/constants.ts";
+import Card from "./Card";
+import styles from "../styles/ComputerHand.module.css";
 
 type Props = {
     items: CardElement[];
 };
 
-const ComputerHand: React.FC<Props> = ({ items }) => {
+const ComputerHand:React.FC<Props> = ({ items }) => {
     const angleStep = -20 / Math.max(items.length, 1); // Меньший угол для компьютера
-    const startAngle = -angleStep * (items.length - 1) / 2;
-const image = "/images/back.png";
+    const startAngle = angleStep * (items.length - 1) / 2;
+    const image = `${import.meta.env.BASE_URL}/images/back.png`;
     return (
         <div className={styles["computer-hand"]}>
             <h4>Карты компьютера ({items.length})</h4>
@@ -29,7 +29,7 @@ const image = "/images/back.png";
                                 ['--index-rotation' as any]: `${angle}deg`
                             }}
                         >
-                            <CardItem
+                            <Card
                                 item={item}
                                 src={image}
                                 onClick={() => {}}

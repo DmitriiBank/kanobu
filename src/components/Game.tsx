@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import type { CardElement } from "../utils/constants.ts";
 import { cardsElements, doesPlayerWin } from "../utils/constants.ts";
-import styles from "./Game.module.css";
 import GameBoard from "./GameBoard.tsx";
 
 const Game = () => {
@@ -269,7 +268,7 @@ const Game = () => {
             setLastCpuLost(false);
         } else {
             setRoundResult("Ничья!");
-            setLastCpuLost(false);
+            setLastCpuLost(true);
         }
     };
 
@@ -327,7 +326,7 @@ const Game = () => {
                 onClickCard={handleReset}
                 onRestart={restartGame}
                 playerScore = {playerScore}
-            computerScore={computerScore}
+                computerScore={computerScore}
                 // Исправлено: имя пропа соответствует GameBoard
             />
         </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import ComputerHand from "./ComputerHand";
 import PlayerHand from "./PlayerHand";
-import CardItem from "./CardItem";
-import styles from "./GameBoard.module.css";
+import Card from "./Card";
+import styles from "../styles/GameBoard.module.css";
 import type { CardElement } from "../utils/constants";
 import ScoreStars from "./ScoreStars";
 
@@ -52,7 +52,7 @@ const GameBoard: React.FC<Props> = ({
                             <div className={styles["computer-card"]}>
                                 <h4>Компьютер</h4>
 
-                                <CardItem
+                                <Card
                                     item={selectedCards.computer}
                                     onClick={() => {}}
                                     className={styles["computer-card-item"]}
@@ -61,7 +61,7 @@ const GameBoard: React.FC<Props> = ({
                             <div className={styles["player-card"]}>
                                 <h4>Вы</h4>
 
-                                <CardItem
+                                <Card
                                     item={selectedCards.player}
                                     onClick={() => {}}
                                     className={styles["player-card-item"]}

@@ -1,6 +1,6 @@
 import React from 'react';
 import type {CARD_TYPES} from "../utils/constants.ts";
-import styles from "./CardItem.module.css"
+import styles from "../styles/CardItem.module.css"
 
 type Props = {
     item: CARD_TYPES;
@@ -9,7 +9,7 @@ type Props = {
     src?: string;
 }
 
-const CardItem: React.FC<Props> = ({ item, onClick, className, src }) => {
+const Card: React.FC<Props> = ({ item, onClick, className, src }) => {
     return (
         <div className={`${styles["card-item"]} ${className || ""}`} onClick={onClick}>
             <img
@@ -22,4 +22,4 @@ const CardItem: React.FC<Props> = ({ item, onClick, className, src }) => {
     );
 };
 
-export default CardItem;
+export default Card;

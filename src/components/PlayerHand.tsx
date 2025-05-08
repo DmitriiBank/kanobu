@@ -1,6 +1,6 @@
-import styles from "./PlayerHand.module.css";
-import CardItem from "./CardItem";
-import type { CardElement } from "../utils/constants";
+import styles from "../styles/PlayerHand.module.css";
+import Card from "./Card";
+import type { CardElement } from "../utils/constants.ts";
 
 interface Props {
     items: CardElement[];
@@ -27,7 +27,7 @@ const PlayerHand = ({ items, selectCard }: Props) => {
                         }}
                         onClick={() => selectCard(item)}
                     >
-                        <CardItem item={item} onClick={() => {}} className={styles["card"]} />
+                        <Card item={item} onClick={() => {}} className={styles["card"]} />
                     </div>
                 );
             })}
