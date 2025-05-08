@@ -13,7 +13,6 @@ const ComputerHand:React.FC<Props> = ({ items }) => {
     const image = `${import.meta.env.BASE_URL}/images/back.png`;
     return (
         <div className={styles["computer-hand"]}>
-            <h4>Карты компьютера ({items.length})</h4>
             <div className={styles["card-list"]}>
                 {items.map((item, index) => {
                     const angle = startAngle + index * angleStep;

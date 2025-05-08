@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import type { CardElement } from "../utils/constants.ts";
+import type { CardElement } from "../utils/constants";
 import { cardsElements, doesPlayerWin } from "../utils/constants.ts";
 import GameBoard from "./GameBoard.tsx";
 
-const Game = () => {
+interface GameProps {
+    onExit: () => void;
+}
+
+// 👇 Добавьте типизацию:
+const Game: React.FC<GameProps> = ({ onExit }) => {
     const [playerCards, setPlayerCards] = useState<CardElement[]>(cardsElements);
     const [selectedCard, setSelectedCard] = useState<CardElement | null>(null);
     const [computerCards, setComputerCards] = useState<CardElement[]>(cardsElements);
@@ -308,6 +313,8 @@ const Game = () => {
                 <div className="rules-modal">
                     <h3>Правила</h3>
                     <p>Камень бьёт ножницы, ножницы — бумагу, бумага — камень.</p>
+                    <p>Звезды - это ваши жизни, чем меньше звезд, тем вы ближе к прогрышу.</p>
+                    <p>Игра окончится когда закончатся карты или звезды у вас или у вашего противника.</p>
                     <button onClick={() => setShowRules(false)}>Понятно</button>
                 </div>
             )}
@@ -329,6 +336,7 @@ const Game = () => {
                 computerScore={computerScore}
                 // Исправлено: имя пропа соответствует GameBoard
             />
+            <button onClick={onExit}>Выйти из игры</button>
         </div>
     );
 };

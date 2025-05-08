@@ -3,7 +3,7 @@ import ComputerHand from "./ComputerHand";
 import PlayerHand from "./PlayerHand";
 import Card from "./Card";
 import styles from "../styles/GameBoard.module.css";
-import type { CardElement } from "../utils/constants";
+import type {CardElement} from "../utils/constants";
 import ScoreStars from "./ScoreStars";
 
 type Props = {
@@ -41,11 +41,16 @@ const GameBoard: React.FC<Props> = ({
     return (
         <div className={styles["game-board"]}>
             <div className={styles["top-section"]}>
-                <ComputerHand items={computerCards} />
-                <ScoreStars score={computerScore} />
+                <ComputerHand items={computerCards}/>
+
             </div>
 
             <div className={styles["middle-section"]}>
+                <div style={{display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+                    <ScoreStars score={computerScore}/>
+
+                    <ScoreStars score={playerScore}/>
+                </div>
                 {selectedCards?.player && selectedCards.computer && (
                     <div className={styles["battle-field"]}>
                         <div className={styles["battle-cards"]}>
@@ -54,7 +59,8 @@ const GameBoard: React.FC<Props> = ({
 
                                 <Card
                                     item={selectedCards.computer}
-                                    onClick={() => {}}
+                                    onClick={() => {
+                                    }}
                                     className={styles["computer-card-item"]}
                                 />
                             </div>
@@ -63,7 +69,8 @@ const GameBoard: React.FC<Props> = ({
 
                                 <Card
                                     item={selectedCards.player}
-                                    onClick={() => {}}
+                                    onClick={() => {
+                                    }}
                                     className={styles["player-card-item"]}
                                 />
                             </div>
@@ -104,8 +111,8 @@ const GameBoard: React.FC<Props> = ({
             </div>
 
             <div className={styles["bottom-section"]}>
-                <ScoreStars score={playerScore} />
-                <PlayerHand items={playerCards} selectCard={onSelectCard} />
+
+                <PlayerHand items={playerCards} selectCard={onSelectCard}/>
             </div>
         </div>
     );

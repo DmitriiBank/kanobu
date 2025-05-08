@@ -1,7 +1,7 @@
 .score-stars {
     display: flex;
     gap: 4px;
-    margin-top: 4px;
+    margin: 100px;
 }
 
 .star {

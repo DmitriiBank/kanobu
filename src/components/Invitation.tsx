@@ -10,7 +10,7 @@ const Invitation = () => {
         }
     };
 
-    const handleKeyPress = (e) => {
+    const handleKeyPress = (e: any) => {
         if (e.key === "Enter" && playerName.trim()) {
             handleSubmit();
         }
